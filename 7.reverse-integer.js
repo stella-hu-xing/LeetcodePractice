@@ -47,20 +47,8 @@
  * @param {number} x
  * @return {number}
  */
-var reverse = function(x) {
-  const boundry = Math.pow(2, 31);
-  if (x > boundry || x < boundry * -1) {
-    return 0;
-  }
-  const flag = x >= 0;
-  const a = Math.abs(x)
-    .toString(10)
-    .split("")
-    .reverse()
-    .join("");
-  const nu = parseInt(a, 10);
-  console.log(flag ? nu : nu * -1);
-  return flag ? nu : nu * -1;
-};
+ var reverse = function(x) {
+  const a = parseInt(Math.abs(x).toString(10).split('').reverse().join(''))
 
-reverse(Math.pow(2, 31) - 1);
+  return a> 2**31-1 ? 0: x>0?a:a*(-1)
+};
